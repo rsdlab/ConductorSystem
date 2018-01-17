@@ -1,0 +1,54 @@
+# InstrumentSelect CMake config file
+#
+# This file sets the following variables:
+# InstrumentSelect_FOUND - Always TRUE.
+# InstrumentSelect_INCLUDE_DIRS - Directories containing the InstrumentSelect include files.
+# InstrumentSelect_IDL_DIRS - Directories containing the InstrumentSelect IDL files.
+# InstrumentSelect_LIBRARIES - Libraries needed to use InstrumentSelect.
+# InstrumentSelect_DEFINITIONS - Compiler flags for InstrumentSelect.
+# InstrumentSelect_VERSION - The version of InstrumentSelect found.
+# InstrumentSelect_VERSION_MAJOR - The major version of InstrumentSelect found.
+# InstrumentSelect_VERSION_MINOR - The minor version of InstrumentSelect found.
+# InstrumentSelect_VERSION_REVISION - The revision version of InstrumentSelect found.
+# InstrumentSelect_VERSION_CANDIDATE - The candidate version of InstrumentSelect found.
+
+message(STATUS "Found InstrumentSelect-@PROJECT_VERSION@")
+set(InstrumentSelect_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(InstrumentSelect_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(InstrumentSelect_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(InstrumentSelect_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(InstrumentSelect_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(InstrumentSelect_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(InstrumentSelect_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(InstrumentSelect_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(InstrumentSelect_VERSION @PROJECT_VERSION@)
+set(InstrumentSelect_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(InstrumentSelect_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(InstrumentSelect_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(InstrumentSelect_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+

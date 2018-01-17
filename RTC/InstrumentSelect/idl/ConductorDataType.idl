@@ -1,0 +1,18 @@
+#ifndef CONDUCTOR_IDL
+#define CONDUCTOR_IDL
+
+module Conductor
+{
+    struct ControlMusic
+    {
+		//Music Play and Stop
+		boolean PlayAndStop;
+		//Instrument control
+		boolean Part1;
+		boolean Part2;
+		boolean Part3;
+		boolean Part4;
+	};
+};
+
+#endif     /* CONDUCTOR_IDL */
