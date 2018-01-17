@@ -1,0 +1,54 @@
+# VolumeAdjust CMake config file
+#
+# This file sets the following variables:
+# VolumeAdjust_FOUND - Always TRUE.
+# VolumeAdjust_INCLUDE_DIRS - Directories containing the VolumeAdjust include files.
+# VolumeAdjust_IDL_DIRS - Directories containing the VolumeAdjust IDL files.
+# VolumeAdjust_LIBRARIES - Libraries needed to use VolumeAdjust.
+# VolumeAdjust_DEFINITIONS - Compiler flags for VolumeAdjust.
+# VolumeAdjust_VERSION - The version of VolumeAdjust found.
+# VolumeAdjust_VERSION_MAJOR - The major version of VolumeAdjust found.
+# VolumeAdjust_VERSION_MINOR - The minor version of VolumeAdjust found.
+# VolumeAdjust_VERSION_REVISION - The revision version of VolumeAdjust found.
+# VolumeAdjust_VERSION_CANDIDATE - The candidate version of VolumeAdjust found.
+
+message(STATUS "Found VolumeAdjust-@PROJECT_VERSION@")
+set(VolumeAdjust_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(VolumeAdjust_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(VolumeAdjust_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(VolumeAdjust_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(VolumeAdjust_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(VolumeAdjust_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(VolumeAdjust_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(VolumeAdjust_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(VolumeAdjust_VERSION @PROJECT_VERSION@)
+set(VolumeAdjust_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(VolumeAdjust_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(VolumeAdjust_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(VolumeAdjust_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+
