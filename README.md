@@ -3,37 +3,37 @@
 
 
 
-各ファイルの説明
+各ファイルの説明　<br>
 
-・RTC
-　コンダクターシステムで利用するRTコンポーネント群
+・RTC <br>
+　コンダクターシステムで利用するRTコンポーネント群 <br>
 
-    ・Acceleration
- 　   LSM6DS33から加速度を取得するコンポーネント
+    ・Acceleration <br>
+ 　   LSM6DS33から加速度を取得するコンポーネント <br>
 
-    ・VolumeAdjust
- 　  合成加速度によって，音量設定値を出力するコンポーネント
+    ・VolumeAdjust <br>
+ 　  合成加速度によって，音量設定値を出力するコンポーネント<br>
 
-    ・InstrumentSelect
-　   iPhoneと通信し，iPhoneアプリの値を出力するコンポーネント
+    ・InstrumentSelect <br>
+　   iPhoneと通信し，iPhoneアプリの値を出力するコンポーネント <br>
 
-    ・Music_Control
-　   ConductorSystem統合コンポーネント
+    ・Music_Control <br>
+　   ConductorSystem統合コンポーネント <br>
 
-・idl
- Raspberry Pi上でコンダクターシステムを利用するために必要なidl関連ファイル
+・idl <br>
+ Raspberry Pi上でコンダクターシステムを利用するために必要なidl関連ファイル <br>
 
-    ・BasicData
-　   VolumeAdjustで利用したコンポーネントのidl関連ファイル
+    ・BasicData <br>
+　   VolumeAdjustで利用したコンポーネントのidl関連ファイル <br>
 
-    ・ConductorData
-　   InstrumentSelectとMusic_Controlで利用したコンポーネントのidl関連ファイル
+    ・ConductorData <br>
+　   InstrumentSelectとMusic_Controlで利用したコンポーネントのidl関連ファイル <br>
 
-    ・MIDIData
-　   Music_Controlで利用したコンポーネントのidl関連ファイル
+    ・MIDIData <br>
+　   Music_Controlで利用したコンポーネントのidl関連ファイル <br>
 
-・Instrumetn_Selection
-　 iPhoneアプリのプログラム
+・Instrumetn_Selection <br>
+　 iPhoneアプリのプログラム <br>
 
-・Document
-　 各種マニュアルが入ったファイル
+・Document <br>
+　 各種マニュアルが入ったファイル <br>
