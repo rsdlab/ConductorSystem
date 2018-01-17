@@ -1,0 +1,52 @@
+#ifndef CONDUCTOR_IDL
+#define CONDUCTOR_IDL
+
+module Conductor
+{
+    struct ControlMusic
+    {
+		//Music Play and Stop
+		boolean PlayAndStop;
+		//Instrument control
+		boolean Part1;
+		boolean Part2;
+		boolean Part3;
+		boolean Part4;
+	};
+
+	struct EachPartInformation
+	{
+		double Number;
+		string InstrumentPart;
+	};
+
+	struct MIDIMessageData
+	{
+		double Time;
+		string eventData;
+		short channelData;
+		short note_numberData;
+		short velocityData;
+	};
+
+	enum RETURN_VALUE
+	{
+		//COMMON
+		RETURN_OK,
+		RETURN_SET_ARRAY_ID_OK,
+		RETURN_DATA_NOT_FOUND,
+		RETURN_MUSIC_PAUSE,
+		RETURN_ERROR
+	};
+
+	interface MIDIDataInterface
+	{
+		//Set Array ID
+		//RETURN_VALUE InstrumentPartID(in ArrayNumData setArrayNumData);
+		//get MIDI Data
+		RETURN_VALUE getMIDIData(in EachPartInformation setinstrumentNumData, out MIDIMessageData midiData);
+	};
+
+};
+
+#endif     /* CONDUCTOR_IDL */
